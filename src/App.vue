@@ -1,4 +1,7 @@
 <template>
+<section>
+  <cabecalho />
+
   <div class="container">
     <h2>{{ titulo }}</h2>
     <div class="input-group">
@@ -17,23 +20,36 @@
 
       </li>
     </ul>
-    <footer>
-      <em>Altere aqui o título da sua lista de tarefas</em>
+    <footer2>
+      <em> Que dia é hoje? </em>
       <input v-model="titulo" type="text"/>
-    </footer>
+    </footer2>
   </div>
+  <rodape />
+  </section>
 </template>
 
 <script>
+import Cabecalho from "@/components/Cabecalho";
+import Rodape from "@/components/Rodape";
 export default {
   name: "App",
+  components: { Cabecalho, Rodape },
   data() {
+  
     return {
-      titulo: "Minha lista de tarefas", 
+      titulo: "Segunda-feira", 
       novaTarefa: '',
       tarefas: [
         { titulo: "Estudar", checked: false },
-        { titulo: "Ler", checked: true },
+        { titulo: "Leitura", checked: true },
+        { titulo: "Caminhada", checked: false },
+        { titulo: "Meditação", checked: false },
+        { titulo: "Esporte", checked: true },
+        { titulo: "Mercado", checked: false },
+        { titulo: "Dormir", checked: false },
+        { titulo: "Tirar o Lixo", checked: false },
+        { titulo: "Programar", checked: false },
         ]
       };
     },
@@ -52,9 +68,13 @@ export default {
 </script>
 
 <style>
+section{
+  background-color: rgb(202, 202, 233);
+}
 .container {
   width: 40%;
   margin:20px auto 0px auto;
+  
   }
 
   ul li {
@@ -66,6 +86,7 @@ export default {
 
   .removed label {
     text-decoration: line-through;
+  }
 
-}
+  
 </style>
